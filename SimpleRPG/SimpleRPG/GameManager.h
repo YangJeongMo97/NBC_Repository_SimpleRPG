@@ -48,9 +48,7 @@ public:
 			int pick;
 			string input;
 
-			cout << "진행을 원하시면 엔터(Enter)를 눌러주세요";
 		PICK:
-			cin.ignore();
 			cout << endl;
 			cout << "| 1. 공격 | 2. 아이템 사용 | 3. 상태 보기 | 4. 몬스터 정보 보기 |" << endl;
 			cout << "행동을 선택하세요. : ";

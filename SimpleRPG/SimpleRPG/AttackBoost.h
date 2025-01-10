@@ -23,6 +23,8 @@ public:
 		{
 			int currentAttack = inPlayerCharacter->GetAttack();
 			inPlayerCharacter->SetAttack(currentAttack + attackIncrease);
+
+			cout << "공격력 증가 +" << attackIncrease << "!!!" << endl;
 		}
 	}
 };

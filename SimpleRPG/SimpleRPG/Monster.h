@@ -4,8 +4,6 @@
 #include "HealthPotion.h"
 #include "AttackBoost.h"
 #include "PlayerCharacter.h"
-#include <string>
-#include <algorithm>
 #include <random>
 
 #define MIN_ATK 5	// 공격력 하한
@@ -28,7 +26,9 @@ public:
 	virtual int GetAttack() = 0;
 
 	virtual void TakeDamage(int inDamage, PlayerCharacter* inAttackPlayer) = 0;
-	virtual void Attack(PlayerCharacter* inDamagedPlayer) = 0;
+	virtual void AttackPlayer(PlayerCharacter* inDamagedPlayer) = 0;
 	virtual Item* DropItem() = 0;
+
+	virtual void DisplayInfo() = 0;
 };
 

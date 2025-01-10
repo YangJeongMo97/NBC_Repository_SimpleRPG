@@ -23,8 +23,19 @@ public:
 		{
 			int currentHP = inPlayerCharacter->GetCurrentHealth();
 			int maxHP = inPlayerCharacter->GetMaxHealth();
-			if (currentHP + healthRestore >= maxHP) inPlayerCharacter->SetCurrentHealth(maxHP);
-			else inPlayerCharacter->SetCurrentHealth(currentHP + healthRestore);
+			int healAmount;
+			if (currentHP + healthRestore >= maxHP)
+			{
+				healAmount = maxHP - currentHP;
+				inPlayerCharacter->SetCurrentHealth(maxHP);
+			}
+			else
+			{
+				inPlayerCharacter->SetCurrentHealth(currentHP + healthRestore);
+				healAmount = healthRestore;
+			}
+			
+			cout << "[" << healAmount << "]만큼의 체력을 회복하였습니다!" << endl;
 		}
 	}
 };

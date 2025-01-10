@@ -47,7 +47,7 @@ public:
 		}
 	}
 
-	void Attack(PlayerCharacter* inDamagedPlayer) override
+	void AttackPlayer(PlayerCharacter* inDamagedPlayer) override
 	{
 		if (inDamagedPlayer)
 		{
@@ -75,5 +75,14 @@ public:
 		}
 
 		return DropItem;
+	}
+
+	void DisplayInfo() override
+	{
+		cout << "Enemy info--------------------------------------" << endl;
+		cout << "Name : " << name << endl;
+		cout << "Remain Hp : " << health << endl;
+		cout << "ATK : " << attack << endl;
+		cout << "------------------------------------------------" << endl;
 	}
 };

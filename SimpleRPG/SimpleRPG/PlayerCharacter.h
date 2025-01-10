@@ -86,8 +86,10 @@ public:
 	vector<Item*> GetInventory() { return inventory; }
 	void AddInventory(Item* NewItem) 
 	{
-		if(NewItem) inventory.push_back(NewItem); 
-		cout << "!!!![" << NewItem->GetName() << "]À» È¹µæÇÏ¼Ì½À´Ï´Ù.!!!!" << endl;
+		if(NewItem) inventory.push_back(NewItem);
+		cout << "******" << endl;
+		cout << "*µæÅÛ* [" << NewItem->GetName() << "]À» È¹µæÇÏ¼Ì½À´Ï´Ù." << endl;
+		cout << "******" << endl;
 	}
 
 	void UseItem(int idx)

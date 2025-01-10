@@ -13,8 +13,6 @@ using namespace std;
 class PlayerCharacter
 {
 private:
-	PlayerCharacter() {}
-
 	PlayerCharacter(string inName)
 	{
 		name = inName; 
@@ -51,7 +49,7 @@ public:
 		return instance;
 	}
 
-	// Data Get & Set Field
+	// 데이터 Get & Set
 	string GetName() { return name; }
 	void SetName(string NewName) { name = NewName; }
 
@@ -69,7 +67,7 @@ public:
 	int GetMaxExp() { return maxExp; }
 	void SetMaxExp(int NewMaxExp) { maxExp = NewMaxExp; }
 
-	// This data did't Set only Add
+	// Set 되지 않는 데이터. Add만 가능
 	int GetCurrentExp() { return currentExp; }
 	void AddCurrentExp(int ExpAmount)
 	{ 
@@ -84,20 +82,22 @@ public:
 	int GetGold() { return gold; }
 	void AddGold(int GoldAmount) { gold += GoldAmount; }
 
-	// Inventory Field
+	// 인벤토리
 	vector<Item*> GetInventory() { return inventory; }
 	void AddInventory(Item* NewItem) 
 	{
 		if(NewItem) inventory.push_back(NewItem); 
-		cout << "[" << NewItem->GetName() << "]을 획득하셨습니다." << endl;
-	}
-	void UseItem(int idx)
-	{
-		Item* usedItem = inventory[idx];
-		usedItem->use(this);
-		inventory.erase(inventory.begin() + idx);
+		cout << "!!!![" << NewItem->GetName() << "]을 획득하셨습니다.!!!!" << endl;
 	}
 
+	void UseItem(int idx)
+	{
+		Item* usedItem = inventory[idx - 1];
+		usedItem->use(this);
+		inventory.erase(inventory.begin() + idx - 1);
+	}
+
+	//데미지 및 사망처리
 	void TakeDamage(int inDamage)
 	{
 		if (inDamage >= currentHealth) Death();
@@ -110,7 +110,7 @@ public:
 		exit(0);
 	}
 
-	// Level Up Event
+	// 레벨업
 	void LevelUp()
 	{
 		if (level < 10)
@@ -123,7 +123,7 @@ public:
 		}
 	}
 
-	void PrintInfo()
+	void DisplayInfo()
 	{
 		cout << "Info--------------------------------------------" << endl;
 		cout << "캐릭터 이름 : " << name << endl;
